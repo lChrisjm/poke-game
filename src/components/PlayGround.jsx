@@ -4,21 +4,12 @@ import PokeImg from "./PokeImg";
 
 function PlayGround() {
   const { settings, pokemons, answer, setAnswer, rightPokemon } = usePoke();
-    const {id} = rightPokemon
   const [visible, setVisible] = useState(false);
 
   return (
     <div>
       <h1>{`Vamos a Juegar ${settings.level}`} </h1>
-      {/* <PokeImg visible={visible}  /> */}
-      <img
-        src={
-          id
-            ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
-            : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/20.svg"
-        }
-        alt="Pokemon"
-      />
+      <PokeImg visible={visible}  />
 
       <section className="flex flex-col my-8 justify-center items-center">
         {pokemons?.map((opcion) => (

@@ -7,7 +7,7 @@ function AppPokemon() {
 
   return (
     <>
-      {Object.keys(settings).length > 0 ? <PlayGround /> : <LevelSelector />}
+      {Object.values(settings).includes('') ? <LevelSelector /> : <PlayGround />}
     </>
   );
 }

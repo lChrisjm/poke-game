@@ -6,11 +6,17 @@ import { getRandomInt, pickRandomPokemon } from "../helpers";
 const PokeContext = createContext();
 
 const PokeProvider = ({ children }) => {
-  const [settings, setSettings] = useState({});
+  const [settings, setSettings] = useState({
+    id: 0,
+    level: "",
+    lifes: 0,
+    questions: 200,
+  });
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(false);
   const [rightPokemon, setRightPokemon] = useState("");
   const [answer, setAnswer] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const handleLevelSelector = (e) => {
     const selectedSetting = GAMEMODES.find(
@@ -18,7 +24,7 @@ const PokeProvider = ({ children }) => {
     );
     setSettings(selectedSetting);
   };
-  
+
   const handleRightResponse = async () => {
     if (pokemons.length) {
       let respuesta = await pickRandomPokemon(pokemons);
@@ -53,21 +59,38 @@ const PokeProvider = ({ children }) => {
 
   async function handleNewGame() {
     await ConsultarAPI();
-    await handleRightResponse()
-    await setAnswer("");
+    await handleRightResponse();
+    setAnswer("");
+    setVisible(false);
   }
-  
+
+  function reduceLifes() {
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      lifes: prevSettings.lifes - 1,
+    }));
+  }
+
   useEffect(() => {
-    if (answer !== "" ) {
+    if (answer !== "") {
+      setVisible(true);
+      //   setTimeout(() => {
+      //     handleNewGame();
+      //   }, 3000);
+      if (answer === rightPokemon.name) {
+        console.log("Has acertado");
+      } else {
+        console.error("Has fallado");
+        reduceLifes();
+      }
+    }
+  }, [answer]);
+
+  useEffect(() => {
+    if (settings.level) {
       handleNewGame();
     }
-  }, [answer ]);
-
-   useEffect(() => {
-    if( settings.level){
-        handleNewGame()
-    }
-  }, [settings.level])
+  }, [settings.level]);
 
   useEffect(() => {
     handleRightResponse();
@@ -82,7 +105,8 @@ const PokeProvider = ({ children }) => {
         pokemons,
         setAnswer,
         answer,
-        rightPokemon
+        rightPokemon,
+        visible,
       }}
     >
       {children}
