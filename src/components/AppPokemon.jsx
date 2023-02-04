@@ -7,7 +7,7 @@ function AppPokemon() {
   const { settings, gameFinish } = usePoke();
 
   return (
-    <main className="grow">
+    <main className="grow w-screen">
       {gameFinish ? (
         <Results />
       ) : Object.values(settings).includes(0) ? (

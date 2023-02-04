@@ -36,22 +36,22 @@ function PlayGround() {
       {loading ? (
         <Spinner />
       ) : (
-        <section className="flex flex-col h-full">
+        <section className="flex flex-col h-full items-center text-center">
           <GameHeader />
-          <div className="flex flex-row container px-2">
+          <div className="flex flex-row md:justify-center px-2">
             <LeftStatus />
             <PokeImg visible={visible} />
             <RightStatus />
           </div>
           <MissOrHit />
-          <div className="flex flex-col mt-6 justify-center items-center justify-self-end">
+          <div className="flex flex-col mt-6 w-full  md:w-1/4 items-center ">
             {pokemons?.map((opcion, index) => (
               <input
                 key={opcion.id}
                 type="button"
                 disabled={hideInputs}
                 value={opcion.name}
-                className={`my-2 font-play text-2xl text-white bg-orange-600 w-4/5 py-4 uppercase cursor-pointer rounded-md form-input ${
+                className={`my-2 font-play text-2xl  md:text-4xl text-white bg-orange-600 w-4/5 py-4 uppercase cursor-pointer rounded-md form-input ${
                   hideInputs ? "bg-gray-300" : ""
                 } ${index === 0 ? "mt-0" : "mt-2"}`}
                 onClick={(e) => {

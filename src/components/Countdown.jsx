@@ -11,7 +11,7 @@ const Countdown = () => {
   }, [seconds]);
 
   return (
-    <div className="text-center text-sm text-blue-500 font-play ">
+    <div className="text-center text-sm md:text-xl text-blue-500 font-play ">
       {seconds >= 0 && `Siguiente en: ${seconds} segundos`}
     </div>
   );

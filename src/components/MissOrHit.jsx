@@ -7,7 +7,7 @@ export default function MissOrHit() {
 
   return (
     <div
-      className={`text-center text-gray-800 transition duration-300 ease-in-out  w-full ${
+      className={`text-center text-gray-800 transition duration-300 ease-in-out  w-full md:w-1/5 ${
         entry == "" ? "invisible" : "visible"
       }`}
     >
