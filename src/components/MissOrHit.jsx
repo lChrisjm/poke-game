@@ -7,17 +7,17 @@ export default function MissOrHit() {
 
   return (
     <div
-      className={`text-center text-gray-800 transition duration-300 ease-in-out  w-full md:w-auto   ${
+      className={`text-center text-gray-800 transition duration-300 ease-in-out px-4   ${
         entry == "" ? "invisible" : "visible"
       }`}
     >
       <div
-        className={`mt-3 ${resultClass} py-3 rounded-lg ring-4 md:px-12 ring-black mx-4`}
+        className={`mt-3 ${resultClass} py-3 rounded-lg ring-4 px-2 ring-black mx-4 ext-xl`}
       >
-        <p className="font-play text-2xl">
+        <p className="font-play">
           {entry === "hit" ? "Acertaste!" : "Fallaste!"} Este Pokemón es:
         </p>
-        <span className="font-start text-2xl text-black">
+        <span className="font-start text-black">
           {entry != "" && rightPokemon.name}
         </span>
       </div>

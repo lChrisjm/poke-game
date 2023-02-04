@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <footer className="flex flex-col text-sm text-center md:text-xl bg-poke-red text-white py-2 md:py-6">
-      <p className=" md:text-xl text-sm">
+    <footer className="flex flex-col text-sm text-center bg-poke-red text-white py-2 md:py-2">
+      <p >
         Send feedback or contribute at{" "}
         <a
           className="text-white font-bold"
@@ -11,7 +11,7 @@ function Footer() {
           GitHub
         </a>
       </p>
-      <p className="text-xs  md:text-xl ">Images from © Nintendo</p>
+      <p>Images from © Nintendo</p>
     </footer>
   );
 }

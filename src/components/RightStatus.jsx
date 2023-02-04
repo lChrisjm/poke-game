@@ -7,12 +7,12 @@ export default function RightStatus() {
 
 
   return (
-    <div className="w-20 flex flex-col text-center">
-      <div className="">
+    <div className=" px-1 flex flex-col text-center">
+      <div >
         <p className="font-changa text-xl leading-none">Aciertos:</p>
         <span className="font-play text-lg ">{hits}</span>
       </div>
-      <div>
+      <div className="mt-4">
         <p className="font-changa text-xl leading-none">Vidas</p>
         <span className="font-play text-lg ">{playerLifes}</span>
       </div>
