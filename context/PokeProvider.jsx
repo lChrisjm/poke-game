@@ -133,7 +133,6 @@ const PokeProvider = ({ children }) => {
         setEntry("miss");
       }
       increaseRounds();
-      // setLoading(true)
       setTimeout(() => {
         handleNewGame();
       }, 4000);
@@ -150,7 +149,7 @@ const PokeProvider = ({ children }) => {
   }, [settings.level]);
 
   useEffect(() => {
-    if ((playerLifes < 0 || playerRounds > settings.questions) && playing) {
+    if ((playerLifes == 0 || playerRounds > settings.questions) && playing) {
       setPlaying(false);
       setGameFinish(true);
       return;
