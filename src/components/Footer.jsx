@@ -8,10 +8,10 @@ function Footer() {
           href="https://github.com/lChrisjm/poke-game"
           target="_blank"
         >
-          GitHub
+          GitHub 
         </a>
+        <span> |  Images from © Nintendo </span>
       </p>
-      <p>Images from © Nintendo</p>
     </footer>
   );
 }
